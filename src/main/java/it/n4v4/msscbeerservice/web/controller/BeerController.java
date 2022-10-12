@@ -13,30 +13,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.n4v4.msscbeerservice.services.BeerService;
 import it.n4v4.msscbeerservice.web.module.BeerDto;
 import lombok.Builder;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
 	
+	private final BeerService beerService;
+	
 	@GetMapping({"/{beerId}"})
 	public ResponseEntity<BeerDto> getBeerById(@PathVariable ("beerId") UUID id){
 		
-		return new ResponseEntity(BeerDto.builder().build(), HttpStatus.OK);
+		return new ResponseEntity<>(beerService.getBeerById(id), HttpStatus.OK);
 	}
 	
 	@PostMapping
 	public ResponseEntity saveNewBeer(@Validated @RequestBody BeerDto beerDto) {
 		
-		return new ResponseEntity(HttpStatus.CREATED);
+		return new ResponseEntity<>(beerService.saveNewBeer(beerDto), HttpStatus.CREATED);
 		
 	}
 	
 	@PutMapping("/{beerId}")
 	public ResponseEntity updateBeerById(@PathVariable ("beerId")UUID id, @Validated @RequestBody BeerDto beerDto) {
 		
-		return new ResponseEntity(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(beerService.updateBeer(id, beerDto), HttpStatus.NO_CONTENT);
 		
 	}
 

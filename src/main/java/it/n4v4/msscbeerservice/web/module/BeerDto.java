@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,10 +40,10 @@ public class BeerDto {
 	@NotNull
 	private BeerStyleEnum beerStyle;
 	
-	@Positive
 	@NotNull
-	private Long upc;
+	private String upc;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	@Positive
 	@NotNull
 	private BigDecimal price;

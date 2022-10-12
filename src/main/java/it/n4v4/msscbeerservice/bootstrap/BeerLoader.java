@@ -11,6 +11,10 @@ import lombok.Builder;
 
 @Component
 public class BeerLoader implements CommandLineRunner{
+	
+	public static final String BEER_NUM_1 = "afkafmk";
+	public static final String BEER_NUM_2 = "cakcak";
+	public static final String BEER_NUM_3 = "macòla";
 
 	private final BeerRepository beerRepository;
 	
@@ -33,7 +37,7 @@ public class BeerLoader implements CommandLineRunner{
 					.beerName("Nastro Azzurro")
 					.beerStyle("IPA")
 					.quantityToBrew(200)
-					.upc(444444443243284283L)
+					.upc(BEER_NUM_1)
 					.monOnHand(4)
 					.price(new BigDecimal(14))
 					.build());
@@ -42,7 +46,16 @@ public class BeerLoader implements CommandLineRunner{
 					.beerName("Peroni")
 					.beerStyle("Ale")
 					.quantityToBrew(400)
-					.upc(444444443243284283L)
+					.upc(BEER_NUM_2)
+					.monOnHand(24)
+					.price(new BigDecimal(7))
+					.build());
+			
+			beerRepository.save(Beer.builder()
+					.beerName("Icnusa")
+					.beerStyle("Ale")
+					.quantityToBrew(400)
+					.upc(BEER_NUM_3)
 					.monOnHand(24)
 					.price(new BigDecimal(7))
 					.build());
