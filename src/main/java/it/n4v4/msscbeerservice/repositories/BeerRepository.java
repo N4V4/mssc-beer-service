@@ -1,5 +1,6 @@
 package it.n4v4.msscbeerservice.repositories;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
@@ -21,5 +22,5 @@ public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID> {
 
 	Page<Beer> findAllByBeerStyle(BeerStyleEnum beerStyle, PageRequest pageRequest);
 
-	//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
+	Optional<Beer> findByUpc(String upc);
 }

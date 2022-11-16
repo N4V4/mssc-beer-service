@@ -1,5 +1,6 @@
 package it.n4v4.msscbeerservice.web.module;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -20,7 +21,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto {
+public class BeerDto implements Serializable{
+	
+	static final long serialVersionUID = 43274298958495934L;
 	
 	@Null
 	private UUID id;
@@ -32,7 +35,7 @@ public class BeerDto {
 	private OffsetDateTime createdDate;
 	
 	@Null
-	private OffsetDateTime lastModifedDate;
+	private OffsetDateTime lastModifiedDate;
 	
 	@NotBlank
 	private String beerName;

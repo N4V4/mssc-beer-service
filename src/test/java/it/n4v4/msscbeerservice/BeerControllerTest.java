@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler.Builder;
 
 import it.n4v4.msscbeerservice.bootstrap.BeerLoader;
-import it.n4v4.msscbeerservice.services.BeerService;
+import it.n4v4.msscbeerservice.services.beer.BeerService;
 import it.n4v4.msscbeerservice.web.controller.BeerController;
 import it.n4v4.msscbeerservice.web.module.BeerDto;
 import it.n4v4.msscbeerservice.web.module.BeerStyleEnum;
@@ -64,6 +64,15 @@ public class BeerControllerTest {
 				.content(beerDtoJson)).andExpect(MockMvcResultMatchers.status().isNoContent());
 		
 		
+	}
+	
+	@Test
+	public void getBeerByUpc() throws Exception {
+		
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/beerUpc/"+"0631234300019")
+				.accept(MediaType.APPLICATION_JSON))
+		.andDo(MockMvcResultHandlers.print())
+		.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
 	BeerDto getValidBeerDto() {

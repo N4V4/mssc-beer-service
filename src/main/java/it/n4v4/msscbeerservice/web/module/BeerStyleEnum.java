@@ -2,6 +2,6 @@ package it.n4v4.msscbeerservice.web.module;
 
 public enum BeerStyleEnum {
 	
-	BIONDA, PILSNER, IPA, BLANCHE, TRAPPISTA, ALE
+	BIONDA, PILSNER, IPA, BLANCHE, TRAPPISTA, ALE, PALE_ALE, PORTER
 
 }
