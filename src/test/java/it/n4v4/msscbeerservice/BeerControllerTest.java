@@ -80,7 +80,7 @@ public class BeerControllerTest {
 				.beerStyle(BeerStyleEnum.BIONDA)
 				.price(new BigDecimal(23))
 				.quantityOnHand(2)
-				.upc(BeerLoader.BEER_NUM_2)
+				.upc(BeerLoader.BEER_2_UPC)
 				.build();
 				
 		

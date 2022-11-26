@@ -27,9 +27,9 @@ class BeerInventoryServiceRestTemplateImplTest {
     void getOnhandInventory() {
 
         //todo evolve to use UPC
-       Integer qoh = beerInventoryService.getOnhandInventory(BeerLoader.BEER_UUID_1);
+       //Integer qoh = beerInventoryService.getOnhandInventory(BeerLoader.BEER_UUID_1);
 
-        System.out.println("Stampiamo risultato "+qoh);
+        //System.out.println("Stampiamo risultato "+qoh);
         
 
     }
